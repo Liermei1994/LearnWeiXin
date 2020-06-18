@@ -1,27 +1,26 @@
 /* components/myComponents/myComponent.wxss */
 .titleTab{
   width: 100%;
-  /* border: 1px solid red; */
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
   margin-bottom: 20rpx;
+  /* border: 1px solid red; */
+  justify-content: space-around;
 }
 .item{
+  /* border: 1px solid red; */
+  flex: 1;
   font-size: 36rpx;
   color: #333;
-  padding: 20rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
 }
 .active{
-  font-size: 36rpx;
+  /* font-size: 36rpx; */
   color: #ff5777;
-  /* padding: 20rpx; */
 }
-.active text{
-  border-bottom: 1px solid #ff5777;
-  padding: 0rpx 40rpx;
+.item.active text{
+  border-bottom: 6rpx solid #ff5777;
+  padding: 16rpx 10rpx;
 }

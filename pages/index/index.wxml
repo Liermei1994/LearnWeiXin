@@ -1,6 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  <myComponent bindincrement="handelCom" titles="{{['流行','复古','新款']}}"></myComponent>
 	<!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -12,8 +11,6 @@
 	<button size="mini" open-type="getUserInfo" bindgetuserinfo="handelgetuserInfo">点击授权</button>
 	<open-data type="usernickName"></open-data>
 	<text>{{appAge}}</text>
-	<button size="mini" bindtap="changeColor">点击切换颜色</button>
-	<view class='box {{isActive ? "active" : ""}}'>boxColor</view>
 	<view class="usermotto">
 		<button bindtap="goToHome">home</button>
     <navigator url="../home/home" >home</navigator>
@@ -26,8 +23,7 @@
 			<text>{{counter}}</text>
 			<button bindtap="add" size="mini">+</button>
 		</view>
-		<view class="test" hover-class="hclass">hhhhh</view>
-		<image mode="widthFix" src="../assets/images/72aaee49-d36a-4e05-a48d-cc17e4dac071.jpeg"></image>
+		 <myComponent class='{{showTop ? "topTab" : ""}}' bindincrement="handelCom" titles="{{['流行','复古','新款']}}"></myComponent>
 		<button size="mini" bindtap="chooseImg">选择图片</button>
 		<image src="{{imgPath}}"></image>
 		<input class="inputc" placeholder="请输入..." bindinput="inputValue" bindfocus="handelFpcus" bindblur="shiqu"></input>
@@ -59,5 +55,8 @@
 	</view> -->
  <myComponent title="123" titleClass="red" bindfatherNmuAdd="numAdd"></myComponent>
  <text>{{number}}</text>
-  <!-- <myComponent title="999" titleClass="green"></myComponent> -->
+ <!-- 回到顶部按钮 -->
+ <view class="backTop" bindtap="backTop" wx:if="{{isShowBackTop}}">
+ <image class="backImg" src="../assets/images/向上箭头.png"></image>
+ </view>
 </view>

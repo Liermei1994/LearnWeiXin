@@ -1,4 +1,5 @@
 //index.js
+import {getIndexDatas} from '../../service/api.js';
 //获取应用实例
 const app = getApp()
 
@@ -15,60 +16,84 @@ Page({
     isActive: false,
     score: 90,
     movies: ["a", "b", "c"],
-    number: 0
+    number: 0,
+    isShowBackTop:false,
+    distance:200,
+    showTop:false
+  },
+  //监听页面滚动
+  onPageScroll(options){
+    // console.log(options,'dd')
+    // let dd = options.scrollTop
+    // this.setData({
+    //   isShowBackTop:dd>this.data.distance
+    // })
+    let flag = options.scrollTop>this.data.distance
+    // console.log(flag,'flag')
+    if(flag != this.data.isShowBackTop){
+      this.setData({
+        isShowBackTop:flag
+      })
+    }
+  },
+  //回到顶部
+  backTop(){
+    wx.pageScrollTo({
+      scrollTop:0
+    })
   },
   //接收子组件传来的事件数据
   handelCom(e) {
-    console.log(e, '接收子组件传来的事件数据')
+    // console.log(e, '接收子组件传来的事件数据')
   },
   //调用自组件的点击事件
   numAdd(e) {
-    console.log('father', e)
+    // console.log('father', e)
     this.setData({
       number: this.data.number + 1
     })
   },
   handelClick(e) {
-    console.log(e.currentTarget.dataset.item, )
+    // console.log(e.currentTarget.dataset.item, )
   },
   touchstart() {
-    console.log('手指开始触摸屏幕了')
+    // console.log('手指开始触摸屏幕了')
   },
   //changeColor
   changeColor() {
-    console.log("changeColor")
+    // console.log("changeColor")
     this.setData({
       isActive: !this.data.isActive
     })
   },
   //input
   inputValue(e) {
-    console.log(e.detail.value, 'value')
+    // console.log(e.detail.value, 'value')
   },
   handelFpcus(e) {
-    console.log('foucue', e)
+    // console.log('foucue', e)
   },
   shiqu() {
-    console.log('shiqu')
+    // console.log('shiqu')
   },
   bindss(e) {
-    console.log('right', e)
+    // console.log('right', e)
   },
   handelBottom(e) {
-    console.log('距离底部', e.detail.scrollTop)
+    // console.log('距离底部', e.detail.scrollTop)
     if (e.detail.scrollTop > 100) {
-      console.log('此时已经距离顶部>100')
+      // console.log('此时已经距离顶部>100')
     }
   },
   scrolltoupper() {
-    console.log('33333')
+    // console.log('33333')
   },
   //选择图片
   chooseImg() {
-    console.log("选择图片")
+    // console.log("选择图片")
     wx.chooseImage({
       complete: (res) => {
-        console.log(res, 'res')
+        // console.log(res, 'res')
         this.setData({
           imgPath: res.tempFilePaths[0]
         })
@@ -101,25 +126,19 @@ Page({
     this.setData({
       counter: this.data.counter + 1
     })
-    console.log(this.data.counter)
+    // console.log(this.data.counter)
   },
   //页面被加载出来
   onLoad: function (options) {
-    console.log('onLoad')
-    // wx.request({
-    //   url: 'https://webapi.peitaoyun.com/api/Product/GetProductsPageList',
-    //   success: (res) => {
-    //     const data = res.data.result.data
-    //     this.setData({
-    //       list: data
-    //     })
-    //     console.log(this.data.list, "list")
-    //   }
-    // })
-    console.log(options, '00')
+    // console.log('onLoad')
+    getIndexDatas().then(res=>{
+      console.log(res,'封装')
+    })
+        // console.log(this.data.list, "list")
+    // console.log(options, '00')
     wx.getUserInfo({
       success: function (res) {
-        console.log(res, 'lem')
+        // console.log(res, 'lem')
       }
     })
     // if (app.globalData.userInfo) {
@@ -151,10 +170,10 @@ Page({
   },
   //点击授权
   handelgetuserInfo(e) {
-    console.log(e, 'ee')
+    // console.log(e, 'ee')
   },
   // getUserInfo: function(e) {
-  //   console.log(e)
+    // console.log(e)
   //   app.globalData.userInfo = e.detail.userInfo
   //   this.setData({
   //     userInfo: e.detail.userInfo,
@@ -164,8 +183,8 @@ Page({
 
   //页面显示
   onShow: function (options) {
-    console.log("onShow")
-    console.log(options, 'options')
+    // console.log("onShow")
+    // console.log(options, 'options')
     // switch(options.scene){
     //   case 1001:
     //     break;
@@ -175,30 +194,26 @@ Page({
   },
   //页面渲染完成时
   onReady() {
-    console.log("onReady")
+    // console.log("onReady")
   },
   //页面被隐藏时
   onHide() {
-    console.log("onHide")
+    // console.log("onHide")
   },
   //页面销毁时
   onUnload() {
-    console.log("onUnload")
-  },
-  //滚动事件
-  onPageScroll(scrollTop) {
-    // console.log(scrollTop)
+    // console.log("onUnload")
   },
   //下拉刷新
   onPullDownRefresh() {
-    console.log("下拉刷新")
+    // console.log("下拉刷新")
   },
   //底部事件
   onReachBottom() {
-    console.log("已经到达底部")
+    // console.log("已经到达底部")
   },
   onShareAppMessage(options) {
-    console.log(options, 'share')
+    // console.log(options, 'share')
     return {
       title: 'lem',
       path: '../home',

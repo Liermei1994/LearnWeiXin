@@ -6,8 +6,7 @@
     bindtap="handelTab"
     data-item="{{item}}"
     data-index="{{index}}">
-    {{item}}
-    <text></text>
+    <text>{{item}}</text>
     </view>
 	</block>
 </view>
