@@ -19,3 +19,78 @@
 .usermotto {
   margin-top: 200px;
 }
+.counter{
+  width: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+}
+.test{
+  width: 100rpx;
+  height: 100rpx;
+  background-color: aquamarine;
+}
+.hclass{
+  background-color: red;
+}
+.inputc{
+  width: 100px;
+  height: 50px;
+  border: 1px solid red;
+}
+.vcontents{
+  width: 100%;
+  border: 1px solid red;
+  background-color: aquamarine;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.item{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: blanchedalmond;
+  margin: 20rpx;
+  text-align: center;
+  line-height: 200rpx;
+  display: inline-block;
+}
+.content2{
+  width: 100%;
+  border: 1px solid red;
+  /* background-color: chartreuse; */
+  box-sizing: border-box;
+  height: 500rpx;
+}
+.iten2{
+  width: 100rpx;
+  height: 100rpx;
+  background-color: cornflowerblue;
+  margin: 10rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.box1{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.box2{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: darkkhaki;
+}
+.box{
+  width: 100rpx;
+  height: 100rpx;
+  background-color: darkkhaki;
+}
+.active{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: red;
+}
+.red{
+  color: red;
+}
+.green{
+  color: green;
+}

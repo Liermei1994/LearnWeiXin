@@ -1,14 +1,63 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
+  <myComponent bindincrement="handelCom" titles="{{['流行','复古','新款']}}"></myComponent>
+	<!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}eee</text>
-    <button bindtap="goToHome" >home</button>
-  </view>
+  </view> -->
+	<!-- 点击获取用户信息 -->
+	<button size="mini" open-type="getUserInfo" bindgetuserinfo="handelgetuserInfo">点击授权</button>
+	<open-data type="usernickName"></open-data>
+	<text>{{appAge}}</text>
+	<button size="mini" bindtap="changeColor">点击切换颜色</button>
+	<view class='box {{isActive ? "active" : ""}}'>boxColor</view>
+	<view class="usermotto">
+		<button bindtap="goToHome">home</button>
+    <navigator url="../home/home" >home</navigator>
+		<view wx:if="{{score>=90}}">优秀</view>
+		<view wx:elif="{{score>=80&&score<90}}">liang</view>
+		<view wx:else>bujige</view>
+		<view wx:for="{{list}}" wx:key="index">{{item.productName}}</view>
+		<view class="counter">
+			<button bindtap="subtraction" size="mini">-</button>
+			<text>{{counter}}</text>
+			<button bindtap="add" size="mini">+</button>
+		</view>
+		<view class="test" hover-class="hclass">hhhhh</view>
+		<image mode="widthFix" src="../assets/images/72aaee49-d36a-4e05-a48d-cc17e4dac071.jpeg"></image>
+		<button size="mini" bindtap="chooseImg">选择图片</button>
+		<image src="{{imgPath}}"></image>
+		<input class="inputc" placeholder="请输入..." bindinput="inputValue" bindfocus="handelFpcus" bindblur="shiqu"></input>
+		<view class="box1"></view>
+		<view class="box2"></view>
+		<view>---------实现水平滚动---------</view>
+		<scroll-view class="vcontents" scroll-x bindscrolltolower="bindss">
+			<view class="item" wx:for="{{10}}">{{item}}</view>
+		</scroll-view>
+		<view>--------实现竖向滚动--------</view>
+		<scroll-view class="content2" scroll-y upper-threshold bindscroll="handelBottom">
+			<view class="iten2" wx:for="{{10}}">{{item}}</view>
+		</scroll-view>
+	</view>
+
+	<!-- 在index界面使用模版语法template -->
+	<!-- 先引入 -->
+	<import src="/pages/template/template.wxml" />
+	<!-- 使用 -->
+	<template is="templateItem" data="{{btnTxt:'button1',content:'使用template内容'}}"></template>
+	<view bindtap="touchstart" style="width:100px;height:100px"></view>
+	<!-- <view 
+    wx:for="{{movies}}" 
+    wx:key="index"
+    bindtap="handelClick"
+    data-item="{{item}}"
+    data-index="{{index}}">
+		{{item}}
+	</view> -->
+ <myComponent title="123" titleClass="red" bindfatherNmuAdd="numAdd"></myComponent>
+ <text>{{number}}</text>
+  <!-- <myComponent title="999" titleClass="green"></myComponent> -->
 </view>

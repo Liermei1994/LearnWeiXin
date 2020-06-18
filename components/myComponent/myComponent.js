@@ -1,0 +1,32 @@
+Component({
+  //传递数据
+  properties:{
+    titles:{
+      type:Array,
+      value:[]
+    }
+  },
+  //传递样式
+  externalClasses:['titleClass'],
+  //初始化数据
+  data:{
+    isActive:0
+  },
+  //方法函数
+  methods:{
+    //clickTab
+    handelTab(e){
+      console.log(e.currentTarget.dataset.index,'tab')
+      let index = e.currentTarget.dataset.index
+      this.setData({
+        isActive:index
+      })
+      this.triggerEvent('increment',{index,title:this.properties.titles[index]})
+    },
+    clickBut(){
+      console.log('component')
+      this.triggerEvent('fatherNmuAdd',{age:10,name:'lem'},{})
+    }
+  }
+
+})

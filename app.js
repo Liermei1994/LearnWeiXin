@@ -9,7 +9,19 @@ App({
     // 登录
     wx.login({
       success: res => {
+        console.log(res,'login')
+        let code = res.code
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          // url: 'https://webapi.peitaoyun.com/api/Users/Login',
+          method:"post",
+          data:{
+            code
+          },
+          success:res=>{
+            console.log(res,'login-----')
+          }
+        })
       }
     })
     // 获取用户信息
@@ -34,6 +46,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    token:''
   }
 })

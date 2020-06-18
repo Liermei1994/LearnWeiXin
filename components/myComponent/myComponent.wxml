@@ -1,0 +1,15 @@
+<!--components/myComponents/myComponent.wxml-->
+<view class="titleTab">
+	<block wx:for="{{titles}}" wx:key="{{index}}">
+		<view 
+    class='item {{isActive==index ? "active" : ""}}'
+    bindtap="handelTab"
+    data-item="{{item}}"
+    data-index="{{index}}">
+    {{item}}
+    <text></text>
+    </view>
+	</block>
+</view>
+<text class="titleClass" >{{title}}</text>
+<button size="mini" bindtap="clickBut">+</button>
